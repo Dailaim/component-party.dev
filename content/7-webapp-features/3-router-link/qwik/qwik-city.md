@@ -4,7 +4,7 @@ With [qwik-city](https://qwik.builder.io/qwikcity/overview/)
 import { component$ } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
 
-const Home = component$(() => {
+export const Home = component$(() => {
   return (
     <ul>
       <li>
@@ -16,6 +16,4 @@ const Home = component$(() => {
     </ul>
   );
 });
-
-export default Home;
 ```
