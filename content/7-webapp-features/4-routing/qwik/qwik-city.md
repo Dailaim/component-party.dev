@@ -6,6 +6,10 @@ With [qwik-city](https://qwik.builder.io/qwikcity/overview/)
     |-- about/
         |-- index.tsx // about page "/about"
     |-- layout.tsx // global app layout
-    |-- [rest]/
-        |-- index.tsx // dynamic parameter, can be used as catch-all to show 404 page
+    |-- [id]/
+        |-- index.tsx // dynamic parameter
+    |-- [...catchall] // is a directory that represents a dynamic catch-all route
+    |-- 404.tsx // Custom 404 Page
+    |-- (name) // By enclosing any directory name in parentheses, like (name),
+    // the directory name itself will not be included in the URL pathname.
 ```
