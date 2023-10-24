@@ -1,26 +1,22 @@
-import { $, component$, useStore } from "@builder.io/qwik";
-import AnswerButton from "./AnswerButton";
+import { $, component$, useSignal } from "@builder.io/qwik";
+import { AnswerButton } from "./AnswerButton";
 
-const App = component$(() => {
-  const store = useStore({
-    isHappy: true,
-  });
+export const App = component$(() => {
+  const isHappy = useSignal(true);
 
   const onAnswerNo = $(() => {
-    store.isHappy = false;
+    isHappy.value = false;
   });
 
   const onAnswerYes = $(() => {
-    store.isHappy = true;
+    isHappy.value = true;
   });
 
   return (
     <>
       <p>Are you happy?</p>
       <AnswerButton onYes$={onAnswerYes} onNo$={onAnswerNo} />
-      <p style={{ fontSize: 50 }}>{store.isHappy ? "ðŸ˜€" : "ðŸ˜¥"}</p>
+      <p style={{ fontSize: 50 }}>{isHappy.value ? "ðŸ˜€" : "ðŸ˜¥"}</p>
     </>
   );
 });
-
-export default App;

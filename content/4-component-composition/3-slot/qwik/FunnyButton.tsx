@@ -1,6 +1,6 @@
 import { component$, Slot } from "@builder.io/qwik";
 
-const FunnyButton = component$(() => {
+export const FunnyButton = component$(() => {
   return (
     <button
       style={{
@@ -20,5 +20,3 @@ const FunnyButton = component$(() => {
     </button>
   );
 });
-
-export default FunnyButton;

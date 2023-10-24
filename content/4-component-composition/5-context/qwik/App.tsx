@@ -2,15 +2,16 @@ import {
   component$,
   useStore,
   useContextProvider,
-  createContext,
+  createContextId,
   $,
 } from "@builder.io/qwik";
-import UserProfile from "./UserProfile";
+import { UserProfile } from "./UserProfile";
+import { Store, User } from "./types";
 
-export const UserContext = createContext("user-context");
+export const UserContext = createContextId<Store>("user-context");
 
-const App = component$(() => {
-  const user = useStore({
+export const App = component$(() => {
+  const user = useStore<User>({
     id: 1,
     username: "unicorn42",
     email: "unicorn42@example.com",
@@ -29,5 +30,3 @@ const App = component$(() => {
     </>
   );
 });
-
-export default App;

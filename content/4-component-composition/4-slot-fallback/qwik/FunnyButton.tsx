@@ -7,7 +7,7 @@ import { component$, Slot, useStylesScoped$ } from "@builder.io/qwik";
  *
  * The recommended workaround is something like this, using CSS
  */
-const FunnyButton = component$(() => {
+export const FunnyButton = component$(() => {
   useStylesScoped$(`
       button {
         background: rgba(0, 0, 0, 0.4);
@@ -35,5 +35,3 @@ const FunnyButton = component$(() => {
     </button>
   );
 });
-
-export default FunnyButton;

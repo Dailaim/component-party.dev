@@ -1,5 +1,6 @@
-import FunnyButton from "./FunnyButton";
+import { component$ } from "@builder.io/qwik";
+import { FunnyButton } from "./FunnyButton";
 
-export default function App() {
+export const App = component$(() => {
   return <FunnyButton>Click me!</FunnyButton>;
-}
+});

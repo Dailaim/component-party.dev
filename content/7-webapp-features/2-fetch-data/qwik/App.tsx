@@ -9,15 +9,16 @@ type UsersResponse = {
       first: string;
       last: string;
     };
+    id: {
+      value: string;
+    };
   }[];
 };
 
-export async function fetchUsers() {
-  return (await fetch("https://randomuser.me/api/?results=3")).json();
-}
-
 export const App = component$(() => {
-  const data = useResource$<UsersResponse>(fetchUsers);
+  const data = useResource$<UsersResponse>(async () => {
+    return (await fetch("https://randomuser.me/api/?results=3")).json();
+  });
 
   return (
     <Resource
@@ -27,7 +28,7 @@ export const App = component$(() => {
       onResolved={({ results: users }) => (
         <ul>
           {users.map((user) => (
-            <li>
+            <li key={user.id.value}>
               <img src={user.picture.thumbnail} alt="user" />
               <p>
                 {user.name.first} {user.name.last}

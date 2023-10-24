@@ -1,13 +1,11 @@
-import { component$, useClientEffect$, useStore } from "@builder.io/qwik";
+import { component$, useVisibleTask$, useSignal } from "@builder.io/qwik";
 
-export const App = component$(() => {
-  const store = useStore({
-    pageTitle: "",
+export const PageTitle = component$(() => {
+  const pageTitle = useSignal("");
+
+  useVisibleTask$(() => {
+    pageTitle.value = document.title;
   });
 
-  useClientEffect$(() => {
-    store.pageTitle = document.title;
-  });
-
-  return <p>Page title: {store.pageTitle}</p>;
+  return <p>Page title: {pageTitle.value}</p>;
 });

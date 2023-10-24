@@ -5,7 +5,7 @@ type Props = {
   onNo$: PropFunction<() => void>;
 };
 
-const AnswerButton = component$((props: Props) => {
+export const AnswerButton = component$<Props>((props) => {
   return (
     <>
       <button onClick$={props.onYes$}>YES</button>
@@ -14,5 +14,3 @@ const AnswerButton = component$((props: Props) => {
     </>
   );
 });
-
-export default AnswerButton;

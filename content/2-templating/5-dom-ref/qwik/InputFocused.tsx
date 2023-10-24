@@ -1,9 +1,9 @@
-import { component$, useClientEffect$, useRef } from "@builder.io/qwik";
+import { component$, useVisibleTask$, useSignal } from "@builder.io/qwik";
 
 export const InputFocused = component$(() => {
-  const inputElement = useRef(null);
+  const inputElement = useSignal<HTMLInputElement>();
 
-  useClientEffect$(() => inputElement.current.focus());
+  useVisibleTask$(() => inputElement.value.focus());
 
   return <input type="text" ref={inputElement} />;
 });

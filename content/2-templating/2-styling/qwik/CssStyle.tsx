@@ -1,6 +1,8 @@
 import { component$, useStyles$ } from "@builder.io/qwik";
 
-export const App = component$(() => {
+import "./style.css";
+
+export const CssStyle = component$(() => {
   useStyles$(`
     .title {
       color: red;

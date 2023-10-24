@@ -1,18 +1,18 @@
-import { component$, useStore, $ } from "@builder.io/qwik";
+import { component$, useSignal, $ } from "@builder.io/qwik";
 
 const PickPill = component$(() => {
-  const store = useStore({ picked: "red" });
+  const picked = useSignal("red");
 
-  const handleChange = $((event: Event) => {
-    store.picked = (event.target as HTMLInputElement).value;
+  const handleChange = $((_, Element) => {
+    picked.value = Element.value;
   });
 
   return (
     <>
-      <div>Picked: {store.picked}</div>
+      <div>Picked: {picked.value}</div>
       <input
         id="blue-pill"
-        checked={store.picked === "blue"}
+        checked={picked.value === "blue"}
         type="radio"
         value="blue"
         onChange$={handleChange}
@@ -21,7 +21,7 @@ const PickPill = component$(() => {
 
       <input
         id="red-pill"
-        checked={store.picked === "red"}
+        checked={picked.value === "red"}
         type="radio"
         value="red"
         onChange$={handleChange}

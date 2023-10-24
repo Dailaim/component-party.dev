@@ -1,7 +1,7 @@
 import { component$, useContext } from "@builder.io/qwik";
 import { UserContext } from "./App";
 
-const UserProfile = component$(() => {
+export const UserProfile = component$(() => {
   const { user, updateUsername } = useContext(UserContext);
 
   return (
@@ -15,5 +15,3 @@ const UserProfile = component$(() => {
     </div>
   );
 });
-
-export default UserProfile;
